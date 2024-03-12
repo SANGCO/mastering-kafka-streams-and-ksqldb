@@ -1,0 +1,4 @@
+1|{"id": "1", "customerId": "1", "product": "Widget", "quantity": 3}
+2|{"id": "2", "customerId": "2", "product": "Gadget", "quantity": 2}
+3|{"id": "3", "customerId": "3", "product": "Thingamajig", "quantity": 1}
+4|{"id": "4", "customerId": "1", "product": "Doohickey", "quantity": 5}

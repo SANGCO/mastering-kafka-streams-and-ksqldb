@@ -15,8 +15,8 @@ import java.util.Properties;
 public class Main {
 
     public static void main(String[] args) {
-//        ktable_ktable_join();
-        kstream_ktable_join();
+        ktable_ktable_join();
+//        kstream_ktable_join();
     }
 
     private static void ktable_ktable_join() {
