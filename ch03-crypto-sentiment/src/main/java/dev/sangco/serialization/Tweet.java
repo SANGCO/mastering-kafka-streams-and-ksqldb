@@ -61,4 +61,15 @@ public class Tweet {
     public void setText(String text) {
         this.text = text;
     }
+
+    @Override
+    public String toString() {
+        return "{\"Tweet\":{"
+                + "        \"createdAt\":\"" + createdAt + "\""
+                + ",         \"id\":\"" + id + "\""
+                + ",         \"lang\":\"" + lang + "\""
+                + ",         \"retweet\":\"" + retweet + "\""
+                + ",         \"text\":\"" + text + "\""
+                + "}}";
+    }
 }

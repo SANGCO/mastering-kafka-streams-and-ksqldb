@@ -53,3 +53,17 @@ services:
       SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zookeeper:32181
     ports:
       - "8081:8081"
+
+  kafka_manager:
+    image: provectuslabs/kafka-ui
+    container_name: kafka-ui
+    ports:
+      - "8989:8080"
+    # restart: always
+    depends_on:
+      - zookeeper
+      - kafka
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
+      - KAFKA_CLUSTERS_0_ZOOKEEPER=zookeeper:32181

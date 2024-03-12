@@ -109,6 +109,7 @@ public class CryptoTopology {
                             return results;
                         });
 
+        // 결과를 Avro 사용해서 "crypto-sentiment" 토픽으로
         // write to the output topic. note: the following code shows how to use
         // both a registry-aware Avro Serde and a registryless Avro Serde
         if (useSchemaRegistry) {
