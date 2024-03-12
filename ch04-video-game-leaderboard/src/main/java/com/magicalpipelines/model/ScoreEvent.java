@@ -28,4 +28,13 @@ public class ScoreEvent {
     public void setScore(Double score) {
         this.score = score;
     }
+
+    @Override
+    public String toString() {
+        return "{\"ScoreEvent\":{"
+                + "        \"playerId\":\"" + playerId + "\""
+                + ",         \"productId\":\"" + productId + "\""
+                + ",         \"score\":\"" + score + "\""
+                + "}}";
+    }
 }

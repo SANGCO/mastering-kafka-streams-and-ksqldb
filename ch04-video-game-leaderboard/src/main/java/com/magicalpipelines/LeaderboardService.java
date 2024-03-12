@@ -1,5 +1,7 @@
 package com.magicalpipelines;
 
+import com.magicalpipelines.model.Player;
+import com.magicalpipelines.model.Product;
 import com.magicalpipelines.model.join.Enriched;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
@@ -40,6 +42,24 @@ class LeaderboardService {
                 StoreQueryParameters.fromNameAndType(
                         // state store name
                         "leader-boards",
+                        // state store type
+                        QueryableStoreTypes.keyValueStore()));
+    }
+
+    ReadOnlyKeyValueStore<String, Player> getPlayerStore() {
+        return streams.store(
+                StoreQueryParameters.fromNameAndType(
+                        // state store name
+                        "players-STATE-STORE-0000000002",
+                        // state store type
+                        QueryableStoreTypes.keyValueStore()));
+    }
+
+    ReadOnlyKeyValueStore<String, Product> getProductStore() {
+        return streams.store(
+                StoreQueryParameters.fromNameAndType(
+                        // state store name
+                        "products-STATE-STORE-0000000005",
                         // state store type
                         QueryableStoreTypes.keyValueStore()));
     }
@@ -154,6 +174,9 @@ class LeaderboardService {
                 ctx.status(404);
                 return;
             }
+
+            ReadOnlyKeyValueStore<String, Player> playerStore = getPlayerStore();
+            ReadOnlyKeyValueStore<String, Product> productStore = getProductStore();
 
             // game was found, so return the high scores
             ctx.json(highScores.toList());

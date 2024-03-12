@@ -55,6 +55,7 @@ class LeaderboardTopology {
                 (score, player) -> new ScoreWithPlayer(score, player);
         KStream<String, ScoreWithPlayer> withPlayers =
                 scoreEvents.join(players, scorePlayerJoiner, playerJoinParams);
+        withPlayers.print(Printed.<String, ScoreWithPlayer>toSysOut().withLabel("with-players"));
 
         /**
          * map score-with-player records to products
