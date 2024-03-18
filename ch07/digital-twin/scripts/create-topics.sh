@@ -2,26 +2,26 @@ echo "Waiting for Kafka to come online..."
 
 cub kafka-ready -b kafka:9092 1 20
 
-# create the pulse-events topic
+# create the reported-state-events topic
 kafka-topics \
   --bootstrap-server kafka:9092 \
-  --topic pulse-events \
+  --topic reported-state-events \
   --replication-factor 1 \
   --partitions 4 \
   --create
 
-# create the body-temp-events topic
+# create the desired-state-events topic
 kafka-topics \
   --bootstrap-server kafka:9092 \
-  --topic body-temp-events \
+  --topic desired-state-events \
   --replication-factor 1 \
   --partitions 4 \
   --create
 
-# create the combined-vitals topic
+# create the digital-twins topic
 kafka-topics \
   --bootstrap-server kafka:9092 \
-  --topic alerts \
+  --topic digital-twins \
   --replication-factor 1 \
   --partitions 4 \
   --create
