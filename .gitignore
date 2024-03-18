@@ -127,3 +127,6 @@ gradle-app.setting
 .classpath
 
 .idea
+
+### Mac OS ###
+.DS_Store
